@@ -1,4 +1,4 @@
-# APineland Moor
+# Pineland Moor
 
 
 Pineland Moor is a melodic metal quintet emerging from Finland, formed in 2023 by three brothers and their childhood friend. All members bring years of experience from various bands, some of which they had already shared stages in before, but Pineland Moor marks the first time all four finally came together in the same project.
