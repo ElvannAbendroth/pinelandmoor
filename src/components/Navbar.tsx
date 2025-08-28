@@ -15,14 +15,12 @@ export type NavItem = {
 }
 
 const navItems: NavItem[] = [
-  { label: 'About', href: '/about', type: 'link' },
-  { label: 'Blog', href: '/blog', type: 'link' },
-  { label: 'Contact', href: '/contact', type: 'link' },
+  { label: 'About', href: '#about', type: 'link' },
+  { label: 'Contact', href: '#contact', type: 'link' },
   {
-    label: 'Visit Repo',
-    href: 'https://github.com/ElvannAbendroth/rock-your-astro-blank',
+    label: 'Listen on Spotify',
+    href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg',
     type: 'button',
-    icon: 'Github',
     target: '_blank',
   },
 ]
@@ -34,13 +32,13 @@ interface NavbarProps {
 //React version of Navbar
 export const Navbar: FC<NavbarProps> = ({ pathname }) => {
   return (
-    <nav className="sticky top-0 bg-background px-4 py-3 md:py-4 md:px-6 ">
+    <nav className="sticky top-0 bg-background/70 px-4 py-3 md:py-4 md:px-6 z-10">
       <div className="flex justify-between max-w-layout mx-auto">
         <a
           className="font-bold text-xl font-display hover:text-foreground-hover flex gap-3 place-items-center"
           href="/"
         >
-          <Icon name="Rocket" /> <span>Rock Your Astro</span>
+          <span>Pineland Moor</span>
         </a>
         <div className="flex flex-gap-12 items-center gap-4 ">
           <DesktopMenu navItems={navItems} className="hidden md:block" pathname={pathname} />

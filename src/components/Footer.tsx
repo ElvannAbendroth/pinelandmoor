@@ -19,17 +19,17 @@ interface FooterProps {}
 
 const Footer: FC<FooterProps> = () => {
   return (
-    <footer className="bg-input text-foreground flex flex-col align-middle items-center">
+    <footer className="bg-background text-foreground flex flex-col align-middle items-center">
       <div className="p-4 w-full max-w-layout rounded-t-lg gap-12 py-12 px-8">
         <div className="flex flex-col gap-4 items-center">
-          <a
+          {/* <a
             className="font-bold text-xl font-display hover:text-foreground-hover flex gap-3 place-items-center"
             href="/"
           >
-            <Icon name="Rocket" /> <span>Rock Your Astro (Blank)</span>
-          </a>
-          <p>Welcome to this awesome website</p>
-          <div className="flex flex-row gap-4">
+            <span>Pineland Moor</span>
+          </a> */}
+
+          {/* <div className="flex flex-row gap-4">
             {socials.map(social => {
               return (
                 <a href="/" target={social.target}>
@@ -37,10 +37,16 @@ const Footer: FC<FooterProps> = () => {
                 </a>
               )
             })}
-          </div>
+          </div> */}
         </div>
-        <div className="flex justify-center py-3">
-          <p className="text-sm">All right reserved</p>
+        <div className="flex flex-col justify-center items-center py-3 gap-2">
+          <p className="text-sm">Copyright © 2025 Pineland Moor</p>
+          <p className="text-sm">
+            Website design by{' '}
+            <a href="https://www.oodri.dev" target="_blank">
+              oodri.dev
+            </a>
+          </p>
         </div>
       </div>
     </footer>

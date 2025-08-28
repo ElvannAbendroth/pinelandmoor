@@ -17,36 +17,37 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --color-background: #ffffff;
-  --color-foreground: #020817;
+  /* Inverted for dark theme */
+  --color-background: #111527;
+  --color-foreground: #ffffff;
 
-  --color-card: #ffffff;
-  --color-card-foreground: #020817;
+  --color-card: #151a2c;
+  --color-card-foreground: #f8fafc;
 
-  --color-popover: #ffffff;
-  --color-popover-foreground: #020817;
+  --color-popover: #151a2c;
+  --color-popover-foreground: #f8fafc;
 
-  --color-primary: #0f172a;
-  --color-primary-foreground: #f8fafc;
+  --color-primary: #f8fafc;
+  --color-primary-foreground: #151a2c;
 
-  --color-secondary: #f1f5f9;
-  --color-secondary-foreground: #0f172a;
+  --color-secondary: #1e293b;
+  --color-secondary-foreground: #f1f5f9;
 
-  --color-muted: #a1a1a1;
-  --color-muted-foreground: #ffffff;
+  --color-muted: #64748b;
+  --color-muted-foreground: #e2e8f0;
 
   --color-accent: #7e5cb7;
   --color-accent-foreground: #ffffff;
 
   --color-accent2: #e07c7d;
-  --color-accent2-foreground: #020817;
+  --color-accent2-foreground: #ffffff;
 
   --color-destructive: #e07c7d;
-  --color-destructive-foreground: #020817;
+  --color-destructive-foreground: #ffffff;
 
-  --color-border: #e2e8f0;
-  --color-input: #e2e8f0;
-  --color-ring: #a1a1a1;
+  --color-border: #334155;
+  --color-input: #334155;
+  --color-ring: #64748b;
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -54,17 +55,18 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --color-sidebar: #fafafa;
-  --color-sidebar-foreground: #252525;
+  /* Sidebar dark theme */
+  --color-sidebar: #1a1a1a;
+  --color-sidebar-foreground: #f0f0f0;
 
-  --color-sidebar-primary: #343434;
-  --color-sidebar-primary-foreground: #fafafa;
+  --color-sidebar-primary: #f0f0f0;
+  --color-sidebar-primary-foreground: #1a1a1a;
 
-  --color-sidebar-accent: #f7f7f7;
-  --color-sidebar-accent-foreground: #343434;
+  --color-sidebar-accent: #2a2a2a;
+  --color-sidebar-accent-foreground: #f0f0f0;
 
-  --color-sidebar-border: #ebebeb;
-  --color-sidebar-ring: #b5b5b5;
+  --color-sidebar-border: #3a3a3a;
+  --color-sidebar-ring: #666666;
 
   --font-display:
     ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';

@@ -1,11 +1,76 @@
 ---
 import { fade } from 'astro:transitions'
 import Layout from '../layouts/Layout.astro'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import ContactForm from '@/components/ContactForm'
 ---
 
-<Layout title="Homepage">
-  <section class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
-    <h1 transition:name="title" class="typo-title">Rock Your Astro</h1>
-    <p class="typo-p">Welcome to the "blank" version of Rock You Astro's template!</p>
+<Layout>
+  <section
+    class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)] p-2 px-6 py-8 sm:py-20 sm:px-10 relative"
+  >
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-fixed opacity-50 z-0"
+      style="background-image: url('/banner.jpg');"
+    >
+    </div>
+    <div class="relative z-10">
+      <img src="/logo-valkoinen.png" alt="Pineland Moor Logo" transition:name="title" width="500" height="200" />
+    </div>
+  </section>
+
+  <section
+    id="about"
+    class="flex flex-col items-center justify-center gap-4 p-2 px-6 py-8 sm:py-20 sm:px-10 relative bg-card"
+  >
+    <div class="flex flex-col max-w-3xl gap-6">
+      <p class="typo-p">
+        Pineland Moor is a melodic metal quartet emerging from Finland, formed in 2023 by three brothers and their
+        childhood friend. All members bring years of experience from various bands, some of which they had already
+        shared stages in before, but Pineland Moor marks the first time all four finally came together in the same
+        project.
+      </p>
+      <p class="typo-p">
+        The band's name is a creative twist of the official title of the brothers’ centuries-old family estate, a place
+        that has long been a backdrop for their lives and a source of inspiration. That sense of heritage and belonging
+        carries into the music, where melodic metal meets a touch of progressive elements.
+      </p>
+      <p class="typo-p">
+        The band envisions Pineland Moor as a safe haven where they and their listeners can escape from this realm. Join
+        us at the metallic backyard party under neon lights!
+      </p>
+    </div>
+  </section>
+  <section id="music" class="flex flex-col items-center justify-center gap-4 p-2 px-6 py-8 sm:py-20 sm:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 max-w-3xl gap-6">
+      <a href="https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg" target="_blank">
+        <img
+          src="/cover-pineland-moor.jpg"
+          class="rounded-xl shadow-2xl hover:scale-105 transition-all"
+          alt="Pineland Moor Cover"
+        />
+      </a>
+
+      <div class="flex flex-col gap-4 items-center justify-center text-center">
+        <h2 class="typo-h2">Effigy is out now!</h2>
+        <p class="typo-p">Listen to our latest single on all streaming platforms! Released on August 28th 2025.</p>
+
+        <a
+          class={cn(buttonVariants({ variant: 'default' }))}
+          href="https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg"
+          target="_blank"
+        >
+          Listen on Spotify
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-card flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
+    <h1 transition:name="title" class="typo-h1">Get In Touch</h1>
+
+    <p class="typo-p">Send us a message and we'll get back to you soon!</p>
+    <ContactForm client:load />
   </section>
 </Layout>

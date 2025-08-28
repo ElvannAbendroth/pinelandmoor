@@ -1,4 +1,12 @@
-# Astro Starter Kit: Minimal
+# APineland Moor
+
+
+Pineland Moor is a melodic metal quintet emerging from Finland, formed in 2023 by three brothers and their childhood friend. All members bring years of experience from various bands, some of which they had already shared stages in before, but Pineland Moor marks the first time all four finally came together in the same project.
+
+The band's name is a creative twist of the official title of the brothers’ centuries-old family estate, a place that has long been a backdrop for their lives and a source of inspiration. That sense of heritage and belonging carries into the music, where melodic metal meets a touch of progressive elements.
+
+The band envisions Pineland Moor as a safe haven where they and their listeners can escape from this realm. Join us at the metallic backyard party under neon lights!
+
 
 ```sh
 npm create astro@latest -- --template minimal

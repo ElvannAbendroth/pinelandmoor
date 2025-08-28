@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+
+// import { findIndexById, getHeadings } from '@/lib/utils'
+import { getEntry } from 'astro:content'
+import { findIndexById, getHeadings, getFormattedDate } from '@/lib/utils'
+
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+
+  return blogEntries.map((entry, i) => {
+    const publishedEntries = blogEntries
+      .filter(entry => {
+        return !entry.data.draft && entry.data.publishDate < new Date()
+      })
+      .sort(function (a, b) {
+        return a.data.publishDate.valueOf() - b.data.publishDate.valueOf()
+      })
+
+    const currentArticleIndex = findIndexById(publishedEntries, entry.id)
+
+    const previous = publishedEntries[currentArticleIndex - 1]
+    const next = publishedEntries[currentArticleIndex + 1]
+
+    const headings = getHeadings(entry.body)
+
+    return {
+      params: { slug: entry.slug },
+      props: { entry, previous, next, headings },
+    }
+  })
+}
+
+// Get the entry directly from the prop on render
+const { entry, previous, next } = Astro.props
+
+const { Content } = await entry.render()
+export const prerender = true
+---
+
+<Layout title={entry.data.title} description={entry.data.snippet} openGraphImage={entry.data.image.src.src}>
+  <section class="flex flex-col items-center justify-center gap-4 w-full">
+    <h1 transition:name={entry.id} class="typo-title">{entry.data.title}</h1>
+    <p class="typo-p uppercase">{getFormattedDate(entry.data.publishDate.toString())}</p>
+    <div class="prose max-w-5xl w-full">
+      <Content />
+    </div>
+  </section>
+</Layout>

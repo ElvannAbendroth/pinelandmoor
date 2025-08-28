@@ -13,9 +13,9 @@ export interface Props {
 }
 
 const siteConfig = {
-  title: 'Rock Your Astro (Blank)',
-  description: 'Site description',
-  author: 'Oodri',
+  title: 'Pineland Moor',
+  description: 'Melodic Metal Band from Finland',
+  author: 'Pineland Moor',
 }
 
 const { title = siteConfig.title, description = siteConfig.description, openGraphImage } = Astro.props
@@ -23,7 +23,7 @@ const { title = siteConfig.title, description = siteConfig.description, openGrap
 const { pathname } = Astro.url
 ---
 
-<html lang="en" class="">
+<html lang="en" class="y">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -34,12 +34,14 @@ const { pathname } = Astro.url
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
 
+    <meta property="og:image" content={openGraphImage ?? '/opengraph.jpg'} />
+
     <ClientRouter />
   </head>
   <body class="flex flex-col">
     <Navbar client:load pathname={pathname} />
 
-    <main class="flex flex-col grow p-2 w-full px-6 py-8 sm:py-20 sm:px-10 min-h-[calc(100vh-4rem)]">
+    <main class="flex flex-col grow w-full min-h-[calc(100vh-4rem)]">
       <slot />
     </main>
     <Footer />
