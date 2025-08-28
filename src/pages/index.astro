@@ -1,0 +1,11 @@
+---
+import { fade } from 'astro:transitions'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Homepage">
+  <section class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
+    <h1 transition:name="title" class="typo-title">Rock Your Astro</h1>
+    <p class="typo-p">Welcome to the "blank" version of Rock You Astro's template!</p>
+  </section>
+</Layout>

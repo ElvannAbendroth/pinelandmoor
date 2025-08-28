@@ -1,0 +1,48 @@
+---
+import '@/styles/globals.css'
+// import { SEO } from 'astro-seo'
+import { Navbar } from '@/components/Navbar'
+import { ClientRouter } from 'astro:transitions'
+import Footer from '@/components/Footer'
+import { Toaster } from '@/components/ui/sonner'
+
+export interface Props {
+  title?: string
+  openGraphImage?: string
+  description?: string
+}
+
+const siteConfig = {
+  title: 'Rock Your Astro (Blank)',
+  description: 'Site description',
+  author: 'Oodri',
+}
+
+const { title = siteConfig.title, description = siteConfig.description, openGraphImage } = Astro.props
+
+const { pathname } = Astro.url
+---
+
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+
+    <ClientRouter />
+  </head>
+  <body class="flex flex-col">
+    <Navbar client:load pathname={pathname} />
+
+    <main class="flex flex-col grow p-2 w-full px-6 py-8 sm:py-20 sm:px-10 min-h-[calc(100vh-4rem)]">
+      <slot />
+    </main>
+    <Footer />
+    <Toaster />
+  </body>
+</html>

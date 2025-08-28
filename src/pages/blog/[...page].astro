@@ -1,0 +1,51 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import type { AstroBlogPagination } from '@/lib/types'
+
+export async function getStaticPaths({ paginate }: { paginate: Function }): Promise<AstroBlogPagination> {
+  // Filter blog entries with 'draft: false' & date before current date
+  const publishedBlogEntries = await getCollection('blog', ({ data }) => {
+    return !data.draft && data.publishDate < new Date()
+  })
+
+  // Sort content entries by publication date
+  publishedBlogEntries.sort(function (a, b) {
+    return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  })
+
+  const paginatedData = paginate(publishedBlogEntries, {
+    pageSize: 4,
+  })
+
+  return paginatedData
+}
+
+const { page } = Astro.props
+
+const pageTyped = page as AstroBlogPagination
+const posts = pageTyped.data
+
+export const prerender = true
+---
+
+<Layout title="Blog">
+  <!-- Project Entries -->
+  <section class="flex flex-col items-center justify-center gap-8">
+    <h1 transition:name="title" class="typo-h1">Blog</h1>
+    <ul class="flex flex-col gap-8 text-center">
+      {
+        posts.map(async (post, i) => {
+          const { Content } = await post.render()
+          return (
+            <li>
+              <a transition:name={post.id} class="typo-h2 hover:underline" href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </section>
+</Layout>

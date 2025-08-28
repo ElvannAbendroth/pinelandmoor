@@ -1,0 +1,138 @@
+@import './fonts.css' layer(base);
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './typography.css';
+
+:root {
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* shadcn */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: #ffffff;
+  --color-foreground: #020817;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #020817;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #020817;
+
+  --color-primary: #0f172a;
+  --color-primary-foreground: #f8fafc;
+
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+
+  --color-muted: #a1a1a1;
+  --color-muted-foreground: #ffffff;
+
+  --color-accent: #7e5cb7;
+  --color-accent-foreground: #ffffff;
+
+  --color-accent2: #e07c7d;
+  --color-accent2-foreground: #020817;
+
+  --color-destructive: #e07c7d;
+  --color-destructive-foreground: #020817;
+
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #a1a1a1;
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: #fafafa;
+  --color-sidebar-foreground: #252525;
+
+  --color-sidebar-primary: #343434;
+  --color-sidebar-primary-foreground: #fafafa;
+
+  --color-sidebar-accent: #f7f7f7;
+  --color-sidebar-accent-foreground: #343434;
+
+  --color-sidebar-border: #ebebeb;
+  --color-sidebar-ring: #b5b5b5;
+
+  --font-display:
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-header:
+    Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-body:
+    Lato, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+
+  --container-layout: 88rem;
+  --container-content: 64rem;
+  --container-optical: 75ch;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentcolor);
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply font-body bg-background text-foreground scroll-smooth;
+  }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@plugin "@tailwindcss/typography";

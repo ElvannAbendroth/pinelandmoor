@@ -1,0 +1,15 @@
+---
+import { Button } from '@/components/ui/button'
+import Layout from '../layouts/Layout.astro'
+import { ArrowLeft } from 'lucide-react'
+---
+
+<Layout title="Homepage">
+  <section class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
+    <h1 class="typo-title">404</h1>
+    <p class="typo-p uppercase">Page couldn't be found!</p>
+    <a href="/">
+      <Button> <ArrowLeft />Return to homepage</Button>
+    </a>
+  </section>
+</Layout>
