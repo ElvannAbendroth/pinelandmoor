@@ -10,9 +10,7 @@ export type Social = {
 }
 
 export const socials: Social[] = [
-  { icon: 'Github', href: 'https://github.com/ElvannAbendroth', target: '_bank' },
-  { icon: 'Linkedin', href: 'https://www.linkedin.com/in/oodri/', target: '_bank' },
-  { icon: 'Globe', href: 'http://www.oodri.dev', target: '_bank' },
+  { icon: 'Instagram', href: 'https://www.instagram.com/pinelandmoorband/', target: '_bank' },
 ]
 
 interface FooterProps {}
@@ -29,15 +27,15 @@ const Footer: FC<FooterProps> = () => {
             <span>Pineland Moor</span>
           </a> */}
 
-          {/* <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-4">
             {socials.map(social => {
               return (
-                <a href="/" target={social.target}>
+                <a href={social.href} target={social.target}>
                   <Icon name={social.icon} size={21} />
                 </a>
               )
             })}
-          </div> */}
+          </div>
         </div>
         <div className="flex flex-col justify-center items-center py-3 gap-2">
           <p className="text-sm">Copyright © 2025 Pineland Moor</p>

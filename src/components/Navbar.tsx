@@ -34,11 +34,8 @@ export const Navbar: FC<NavbarProps> = ({ pathname }) => {
   return (
     <nav className="sticky top-0 bg-background/70 px-4 py-3 md:py-4 md:px-6 z-10">
       <div className="flex justify-between max-w-layout mx-auto">
-        <a
-          className="font-bold text-xl font-display hover:text-foreground-hover flex gap-3 place-items-center"
-          href="/"
-        >
-          <span>Pineland Moor</span>
+        <a className="text-xl font-display hover:text-foreground-hover flex gap-3 place-items-center" href="/">
+          <span>PINELAND MOOR</span>
         </a>
         <div className="flex flex-gap-12 items-center gap-4 ">
           <DesktopMenu navItems={navItems} className="hidden md:block" pathname={pathname} />
