@@ -39,7 +39,7 @@ const { pathname } = Astro.url
     <ClientRouter />
   </head>
   <body class="flex flex-col">
-    <Navbar client:load pathname={pathname} />
+    <Navbar client:only pathname={pathname} />
 
     <main class="flex flex-col grow w-full min-h-[calc(100vh-4rem)]">
       <slot />
