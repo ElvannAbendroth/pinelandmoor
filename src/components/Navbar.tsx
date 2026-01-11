@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/ui/button'
 import type { icons } from 'lucide-react'
+import { useWindowScroll } from '@uidotdev/usehooks'
 
 export type NavItem = {
   label: string
@@ -31,8 +32,16 @@ interface NavbarProps {
 
 //React version of Navbar
 export const Navbar: FC<NavbarProps> = ({ pathname }) => {
+  const [{ y }] = useWindowScroll()
+  const isScrolled = y != null && y > 300
+
   return (
-    <nav className="sticky top-0 bg-background/70 px-4 py-3 md:py-4 md:px-6 z-10">
+    <nav
+      className={cn(
+        'fixed top-0 right-0 left-0 overflow-visible px-4 py-3 md:py-4 md:px-6 transition-colors duration-1000 z-20',
+        isScrolled ? 'bg-background/70 backdrop-blur-2xl shadow-2xl shadow-background-dark' : 'bg-transparent'
+      )}
+    >
       <div className="flex justify-between max-w-layout mx-auto">
         <a className="text-xl font-display hover:text-foreground-hover flex gap-3 place-items-center" href="/">
           <span>PINELAND MOOR</span>
