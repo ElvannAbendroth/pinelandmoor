@@ -4,6 +4,7 @@ import Layout from '@/layouts/Layout.astro'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import ContactForm from '@/components/ContactForm'
+import heroBanner from '@/assets/hero-banner.jpg'
 ---
 
 <Layout>
@@ -12,7 +13,7 @@ import ContactForm from '@/components/ContactForm'
   >
     <div
       class="absolute inset-0 bg-cover bg-center bg-fixed opacity-50 z-0"
-      style="background-image: url('/banner.jpg');"
+      style={`background-image: url(${heroBanner.src});`}
     >
     </div>
     <div class="relative z-10">
