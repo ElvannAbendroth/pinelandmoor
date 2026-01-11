@@ -10,8 +10,14 @@ export type Social = {
 }
 
 export const socials: Social[] = [
-  { icon: 'Instagram', href: 'https://www.instagram.com/pinelandmoorband/', target: '_bank' },
-]
+  {
+    icon: 'Music',
+    href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=93bIPwT2TauxXEGAQmp4GA',
+    target: '_blank',
+  },
+  { icon: 'Instagram', href: 'https://www.instagram.com/pinelandmoorband/', target: '_blank' },
+  { icon: 'Facebook', href: 'https://www.facebook.com/pinelandmoor/', target: '_blank' },
+] as const
 
 interface FooterProps {}
 
@@ -28,13 +34,11 @@ const Footer: FC<FooterProps> = () => {
           </a> */}
 
           <div className="flex flex-row gap-4">
-            {socials.map(social => {
-              return (
-                <a href={social.href} target={social.target}>
-                  <Icon name={social.icon} size={21} />
-                </a>
-              )
-            })}
+            {socials.map(social => (
+              <a key={social.href} href={social.href} target={social.target}>
+                <Icon name={social.icon} size={21} />
+              </a>
+            ))}
           </div>
         </div>
         <div className="flex flex-col justify-center items-center py-3 gap-2">
