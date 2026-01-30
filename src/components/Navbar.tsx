@@ -13,6 +13,7 @@ export type NavItem = {
   type: 'link' | 'button'
   target?: string
   icon?: keyof typeof icons
+  style?: string
 }
 
 const navItems: NavItem[] = [
@@ -23,6 +24,8 @@ const navItems: NavItem[] = [
     href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg',
     type: 'button',
     target: '_blank',
+    // icon: 'Spotify',
+    style: 'bg-spotify hover:bg-spotify/90 rounded-full',
   },
 ]
 
@@ -39,7 +42,7 @@ export const Navbar: FC<NavbarProps> = ({ pathname }) => {
     <nav
       className={cn(
         'fixed top-0 right-0 left-0 overflow-visible px-4 py-3 md:py-4 md:px-6 transition-colors duration-1000 z-20',
-        isScrolled ? 'bg-background/70 backdrop-blur-2xl shadow-2xl shadow-background-dark' : 'bg-transparent'
+        isScrolled ? 'bg-background/70 backdrop-blur-2xl shadow-2xl shadow-background-dark' : 'bg-transparent',
       )}
     >
       <div className="flex justify-between max-w-layout mx-auto">
@@ -85,7 +88,9 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, pathnam
             return (
               <li key={item.label} className="align-middle self-center">
                 <a href={item.href} target={item.target || '_self'}>
-                  <Button icon={item.icon}>{item.label}</Button>
+                  <Button className={item.style} icon={item.icon}>
+                    {item.label}
+                  </Button>
                 </a>
               </li>
             )

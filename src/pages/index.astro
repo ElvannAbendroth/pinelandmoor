@@ -5,6 +5,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import ContactForm from '@/components/ContactForm'
 import heroBanner from '@/assets/hero-banner.jpg'
+import LatestSingleSection from '@/components/LatestSingleSection.astro'
 ---
 
 <Layout>
@@ -43,32 +44,75 @@ import heroBanner from '@/assets/hero-banner.jpg'
       </p>
     </div>
   </section>
-  <section id="music" class="flex flex-col items-center justify-center gap-4 p-2 px-6 py-8 sm:py-20 sm:px-10 relative">
-    <div class="grid grid-cols-1 md:grid-cols-2 max-w-3xl gap-6">
-      <a href="https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg" target="_blank">
-        <img
-          src="/cover-pineland-moor.jpg"
-          class="rounded-xl shadow-2xl hover:scale-105 transition-all"
-          alt="Pineland Moor Cover"
-        />
-      </a>
 
-      <div class="flex flex-col gap-6 items-center md:items-start justify-center text-center md:text-left">
-        <h2 class="typo-h2">Floating on Unknown is out now!</h2>
-        <p class="typo-p">Listen to our latest single on all streaming platforms! Released on October 23rd 2025.</p>
+  <LatestSingleSection
+    sectionId="resistance"
+    title="Resistance is out now!"
+    description="Listen to our latest single on all streaming platforms! Released on January 30th, 2026."
+    imageSrc="cover-pineland-moor.jpg"
+    spotifyUrl="https://open.spotify.com/track/5TyYk3lbFQfFOCKj6ykgcE?si=Om_677CoTkinVBxlo3pJIA"
+    alt="Pineland Moor Single Cover"
+    cardStyle="bg-card"
+    buttonText="Listen on Spotify"
+  />
 
-        <a
-          class={cn(buttonVariants({ variant: 'default' }))}
-          href="https://open.spotify.com/track/5TyYk3lbFQfFOCKj6ykgcE?si=Om_677CoTkinVBxlo3pJIA"
-          target="_blank"
-        >
-          Listen on Spotify
-        </a>
-      </div>
+  <!-- <LatestSingleSection
+    sectionId="floating-on-unknown"
+    title="Floating on Unknown is out now!"
+    description="Listen to our latest single on all streaming platforms! Released on October 23rd"
+    imageSrc="cover-pineland-moor.jpg"
+    spotifyUrl="https://open.spotify.com/track/5TyYk3lbFQfFOCKj6ykgcE?si=Om_677CoTkinVBxlo3pJIA"
+    alt="Pineland Moor Single Cover"
+    cardStyle="bg-card"
+    buttonText="Listen on Spotify"
+  /> -->
+
+  <section
+    id="music-video"
+    class="flex flex-col items-center justify-center gap-4 p-2 px-6 py-8 sm:py-20 sm:px-10 relative"
+  >
+    <div class="flex flex-col max-w-3xl gap-6 w-full items-center">
+      <h2 class="typo-h2">Resistance Music Video</h2>
+
+      <iframe
+        class="rounded-lg shadow-2xl border-none aspect-video w-full"
+        width="auto"
+        height="auto"
+        src="https://www.youtube.com/embed/bog88OpQ-gw?si=MJ7zZmsSz2m-pSE9"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
     </div>
   </section>
 
-  <section id="contact" class="bg-card flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
+  <section
+    id="music"
+    class="bg-card flex flex-col items-center justify-center gap-4 p-2 px-6 py-8 sm:py-20 sm:px-10 relative"
+  >
+    <div class="flex flex-col max-w-3xl gap-6 w-full items-center">
+      <h2 class="typo-h2">Give Us a Follow</h2>
+
+      <iframe
+        data-testid="embed-iframe"
+        style="border-radius:12px"
+        class="w-full rounded-xl shadow-2xl"
+        src="https://open.spotify.com/embed/artist/0N4Yr8uzw1NdbZlYW7r9lJ?utm_source=generator"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <section id="contact" class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-20rem)]">
     <h1 transition:name="title" class="typo-h1">Get In Touch</h1>
 
     <p class="typo-p">Send us a message and we'll get back to you soon!</p>

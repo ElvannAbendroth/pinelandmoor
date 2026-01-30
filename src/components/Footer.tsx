@@ -42,7 +42,7 @@ const Footer: FC<FooterProps> = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center py-3 gap-2">
-          <p className="text-sm">Copyright © 2025 Pineland Moor</p>
+          <p className="text-sm">Copyright © 2026 Pineland Moor</p>
           <p className="text-sm">
             Website design by{' '}
             <a href="https://www.oodri.dev" target="_blank">
