@@ -1,3 +1,4 @@
+import type { IconKey } from '@/components/ui/icon'
 import type { CollectionEntry, CollectionKey, ContentCollectionKey } from 'astro:content'
 import type { icons } from 'lucide-react'
 
