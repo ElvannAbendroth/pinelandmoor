@@ -42,13 +42,13 @@ export type NavItem = {
   disabled?: boolean
   type: 'link' | 'button'
   target?: string
-  icon?: keyof typeof icons
+  icon?: IconKey
 }
 
 export type CTAButton = {
   label: string
   href: string
-  icon: keyof typeof icons
+  icon: IconKey
 }
 
 export type Author = {
@@ -60,7 +60,7 @@ export type Author = {
 export type Theme = 'light' | 'dark'
 
 export type Feature = {
-  icon: keyof typeof icons
+  icon: IconKey
   title: string
   description: string
 }
@@ -73,7 +73,7 @@ export type Testimonial = {
 export type Social = {
   href: string
   target?: string
-  icon: keyof typeof icons
+  icon: IconKey
 }
 
 export type FooterLinksCol = {

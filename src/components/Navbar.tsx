@@ -1,4 +1,4 @@
-import Icon from '@/ui/icon'
+import Icon, { type IconKey } from '@/ui/icon'
 import { type FC } from 'react'
 import { cn } from '@/lib/utils'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -12,8 +12,9 @@ export type NavItem = {
   disabled?: boolean
   type: 'link' | 'button'
   target?: string
-  icon?: keyof typeof icons
+  icon?: IconKey
   style?: string
+  iconStyle?: string
 }
 
 const navItems: NavItem[] = [
@@ -24,8 +25,9 @@ const navItems: NavItem[] = [
     href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg',
     type: 'button',
     target: '_blank',
-    // icon: 'Spotify',
+    icon: 'Spotify',
     style: 'bg-spotify hover:bg-spotify/90 rounded-full',
+    iconStyle: 'fill-background',
   },
 ]
 
@@ -88,7 +90,7 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, pathnam
             return (
               <li key={item.label} className="align-middle self-center">
                 <a href={item.href} target={item.target || '_self'}>
-                  <Button className={item.style} icon={item.icon}>
+                  <Button className={item.style} icon={item.icon} iconStyle={item.iconStyle}>
                     {item.label}
                   </Button>
                 </a>
@@ -134,9 +136,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navItems, className, pat
                 )
               if (item.type === 'button')
                 return (
-                  <li key={item.label}>
+                  <li key={item.label} className="align-middle self-center">
                     <a href={item.href} target={item.target || '_self'}>
-                      <Button icon={item.icon} size={'lg'}>
+                      <Button className={item.style} icon={item.icon} iconStyle={item.iconStyle}>
                         {item.label}
                       </Button>
                     </a>

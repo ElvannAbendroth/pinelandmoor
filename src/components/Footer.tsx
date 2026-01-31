@@ -1,17 +1,15 @@
 import type { FC } from 'react'
-import Icon from '@/ui/icon'
-
-import type { icons } from 'lucide-react'
+import Icon, { type IconKey } from '@/ui/icon'
 
 export type Social = {
   href: string
   target?: string
-  icon: keyof typeof icons
+  icon: IconKey
 }
 
 export const socials: Social[] = [
   {
-    icon: 'Music',
+    icon: 'Spotify',
     href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=93bIPwT2TauxXEGAQmp4GA',
     target: '_blank',
   },

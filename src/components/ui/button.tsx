@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 import type { icons } from 'lucide-react'
-import Icon from '@/components/ui/icon'
+import Icon, { type IconKey } from '@/components/ui/icon'
 
 const buttonVariants = cva(
   'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
@@ -29,26 +29,26 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  icon?: keyof typeof icons
+  icon?: IconKey
+  iconStyle?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, children, icon, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, icon, iconStyle, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
     return (
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
-        {icon && <Icon name={icon} size={16} />}
+        {icon && <Icon name={icon} size={16} className={iconStyle} />}
         {children}
       </Comp>
     )
-  }
+  },
 )
 Button.displayName = 'Button'
 
