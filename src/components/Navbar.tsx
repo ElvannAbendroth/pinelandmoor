@@ -19,7 +19,10 @@ export type NavItem = {
 
 const navItems: NavItem[] = [
   { label: 'About', href: '#about', type: 'link' },
+  { label: 'Music Video', href: '#music-video', type: 'link' },
+  { label: 'Music', href: '#music', type: 'link' },
   { label: 'Contact', href: '#contact', type: 'link' },
+
   {
     label: 'Listen on Spotify',
     href: 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg',
