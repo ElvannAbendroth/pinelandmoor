@@ -1,9 +1,7 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 
-// import { findIndexById, getHeadings } from '@/lib/utils'
-import { getEntry } from 'astro:content'
 import { findIndexById, getHeadings, getFormattedDate } from '@/lib/utils'
 
 // Generate a new path for every collection entry
@@ -24,10 +22,10 @@ export async function getStaticPaths() {
     const previous = publishedEntries[currentArticleIndex - 1]
     const next = publishedEntries[currentArticleIndex + 1]
 
-    const headings = getHeadings(entry.body)
+    const headings = getHeadings(entry.body ?? '')
 
     return {
-      params: { slug: entry.slug },
+      params: { slug: entry.id },
       props: { entry, previous, next, headings },
     }
   })
@@ -36,7 +34,7 @@ export async function getStaticPaths() {
 // Get the entry directly from the prop on render
 const { entry, previous, next } = Astro.props
 
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 export const prerender = true
 ---
 

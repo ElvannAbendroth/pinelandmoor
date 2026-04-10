@@ -36,10 +36,9 @@ export const prerender = true
     <ul class="flex flex-col gap-8 text-center">
       {
         posts.map(async (post, i) => {
-          const { Content } = await post.render()
           return (
             <li>
-              <a transition:name={post.id} class="typo-h2 hover:underline" href={`/blog/${post.slug}`}>
+              <a transition:name={post.id} class="typo-h2 hover:underline" href={`/blog/${post.id}`}>
                 {post.data.title}
               </a>
             </li>
