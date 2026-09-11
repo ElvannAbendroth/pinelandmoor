@@ -13,6 +13,6 @@ export default defineConfig({
   redirects: {
     '/spotify': 'https://open.spotify.com/artist/0N4Yr8uzw1NdbZlYW7r9lJ?si=5vAmh_32SXmTaeNk5gXWrg',
     // QR1 printed on stickers
-    // '/qr/1': 'https://linktr.ee/pinelandmoor',
+    '/qr/1': 'https://linktr.ee/pinelandmoor',
   },
 })
