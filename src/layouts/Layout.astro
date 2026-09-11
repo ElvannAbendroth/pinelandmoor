@@ -41,7 +41,7 @@ const { pathname } = Astro.url
   <body class="flex flex-col">
     <Navbar client:only pathname={pathname} />
 
-    <main class="flex flex-col grow w-full min-h-[calc(100vh-4rem)]">
+    <main class="flex flex-col grow w-full min-h-[calc(80vh-4rem)]">
       <slot />
     </main>
     <Footer />
